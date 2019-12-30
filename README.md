@@ -1,0 +1,2 @@
+# ifcalendar
+The International Fixed Calendar (also known as the Cotsworth plan, the Eastman plan, the 13 Month calendar or the Equal Month calendar) is a solar calendar proposal for calendar reform designed by Moses B. Cotsworth, who presented it in 1902. It divides the solar year into 13 months of 28 days each. It is therefore a perennial calendar, with every date fixed to the same weekday every year.
