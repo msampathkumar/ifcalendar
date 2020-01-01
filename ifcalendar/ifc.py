@@ -1,8 +1,5 @@
 """
 International Fixed Calander or Cotsworth Calender is a 13 month fixed calender.
-
-Author: Sampath Maddula
-Version: 0.1
 """
 
 # https://github.com/python/cpython/blob/master/Lib/datetime.py
