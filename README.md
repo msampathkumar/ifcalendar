@@ -26,3 +26,14 @@ Wed 11 JUN 2020
 >>> print(t.day, t.week, t.week_day, t.month, t.month_name, t.year)
 11 17 Wed 5 JUN 2020
 ```
+
+__Code Development__
+
+- https://github.com/msampathkumar/ifcalendar
+
+__Future Improvements__
+
+- Packaging: https://packaging.python.org/
+- Nose TestCases
+- Pandas/Numpy Support
+- Matplotlib, Seaborn Examples
