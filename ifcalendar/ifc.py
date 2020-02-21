@@ -15,6 +15,7 @@ January
 February
 March
 April
+May
 June
 Sol
 July
@@ -39,6 +40,17 @@ Sat
 def ifc_now():
     return datetime.now().timetuple().tm_yday
 
+def leap_year(year):
+    if (year % 4) == 0:
+        if(year % 100 ==0 ):
+            if (year % 400 ==0):
+                return True
+            else:
+                return False
+
+        return True
+    else:
+        return False
 
 def get_week_ct(day):
     return day // 7
@@ -53,15 +65,27 @@ def get_month_name(mon_ct):
 
 
 def get_month_and_day(day_ct):
-    if not (0 < day_ct <= 367):
+    if not (0 < day_ct < 367):
         raise Exception("DayCount is not between 0 and 366")
-    if day_ct == 366:
+
+    if day_ct == 365 or day_ct == 366:
         return 13, 29
+
     mon, day = divmod(day_ct, MAX_DAYS)
-    if day == 0:
-        mon -= 1
-        day = MAX_DAYS
-    return mon + 1, day
+    if day == 0 & mon!=13:
+        return mon,day
+   
+    return mon+1,day
+
+def get_day(day_ct):
+    if not (0 < day_ct < 367):
+        raise Exception("DayCount is not between 0 and 366")
+
+    rem=(day_ct % MAX_DAYS)
+    if rem==0:
+        return MAX_DAYS
+    else:
+        return rem
 
 
 def to_ifc(obj_datetime):
@@ -92,7 +116,7 @@ class CotsDate:
         return self._year
 
     def get_day(self):
-        return self._year_day_count % MAX_DAYS
+        return get_day(self._year_day_count)
 
     def __repr__(self):
         return '{} {} {} {}'.format(self.week_day, self.day, self.month_name, self.year)
@@ -106,9 +130,8 @@ class CotsDate:
 
 
 def print_year():
-    for i in range(1, 365):
+    for i in range(1, 367):
         t = CotsDate(i, 2020)
         print(t.day, t.week, t.week_day, t.month, t.month_name, t.year)
-
 
 IFCDate = CotsDate
