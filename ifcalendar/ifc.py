@@ -4,7 +4,7 @@ International Fixed Calander or Cotsworth Calender is a 13 month fixed calender.
 
 # https://github.com/python/cpython/blob/master/Lib/datetime.py
 
-from datetime import datetime
+from datetime import datetime as _datetime
 
 
 MAX_MONTH = 13
@@ -37,11 +37,16 @@ Sat
 
 
 def ifc_now():
-    return datetime.now().timetuple().tm_yday
+    tt = _datetime.now()
+    return IFCDate(tt.timetuple().tm_yday, tt.year)
 
 
 def get_week_ct(day):
     return day // 7
+
+
+def get_day_of_week(day):
+    return day % 7 - 1
 
 
 def get_week_day(day):
@@ -65,34 +70,34 @@ def get_month_and_day(day_ct):
 
 
 def to_ifc(obj_datetime):
-    if not obj_datetime.__class__ == datetime:
+    if not obj_datetime.__class__ == _datetime:
         raise Exception('Expected `datetime` class object received `{}`'.format(obj_datetime.__class__))
     time_tuple = obj_datetime.timetuple()
     return CotsDate(time_tuple.tm_yday, time_tuple.tm_year)
 
 
 class CotsDate:
-    def __init__(self, year_day_count, year):
-        self._year_day_count = year_day_count
+    def __init__(self, dayofyear, year):
+        self._dayofyear = dayofyear
         self._year = year
 
     def get_month_id(self):
-        return get_month_and_day(self._year_day_count)[0]
+        return get_month_and_day(self._dayofyear)[0]
 
     def get_month_name(self):
         return get_month_name(self.month)
 
     def get_week_id(self):
-        return get_week_ct(self._year_day_count)
+        return get_week_ct(self._dayofyear)
 
     def get_week_day(self):
-        return get_week_day(self._year_day_count)
+        return get_week_day(self._dayofyear)
 
     def get_year(self):
         return self._year
 
     def get_day(self):
-        return self._year_day_count % MAX_DAYS
+        return self._dayofyear % MAX_DAYS
 
     def __repr__(self):
         return '{} {} {} {}'.format(self.week_day, self.day, self.month_name, self.year)
