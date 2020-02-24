@@ -1,13 +1,20 @@
 from setuptools import setup
 
-description = '''In most time based statistical analysis, generating reports by month or week is a common practice. But the standard Georgian Calendar Months, have differences in each month and adding more concerns by generating in accurate analysis. IFC solves these challenges by having fixed months. In this package, we offer required tools to convert Georgian dates to IFC.'''
+description = 'Cotsworth Calendar or International Fixed Calendar for Statistical Analysis and Experiments'
+long_description = ''
+
+with open('INTRO.md') as fp:
+    long_description = fp.read()
 
 setup(
     name='ifcalendar',
-    version='0.1',
-    description=description,
+    version='0.1.3',
     author='Sampath Maddula',
     author_email='sam1990kumar@gmail.com',
+    description=description,
+    long_description=long_description,
+    long_description_content_type="text/markdown",
     packages=['ifcalendar'],
+    url='https://github.com/msampathkumar/ifcalendar',
     install_requires=[],
 )
