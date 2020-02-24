@@ -6,7 +6,6 @@ International Fixed Calander or Cotsworth Calender is a 13 month fixed calender.
 
 from datetime import datetime as _datetime
 
-
 MAX_MONTH = 13
 MAX_DAYS = 28
 
@@ -41,10 +40,11 @@ def ifc_now():
     tt = _datetime.now()
     return IFCDate(tt.timetuple().tm_yday, tt.year)
 
+
 def leap_year(year):
     if (year % 4) == 0:
-        if(year % 100 ==0 ):
-            if (year % 400 ==0):
+        if (year % 100 == 0):
+            if (year % 400 == 0):
                 return True
             else:
                 return False
@@ -52,6 +52,7 @@ def leap_year(year):
         return True
     else:
         return False
+
 
 def get_week_ct(day):
     return day // 7
@@ -77,17 +78,18 @@ def get_month_and_day(day_ct):
         return 13, 29
 
     mon, day = divmod(day_ct, MAX_DAYS)
-    if day == 0 & mon!=13:
-        return mon,day
-   
-    return mon+1,day
+    if day == 0 & mon != 13:
+        return mon, day
+
+    return mon + 1, day
+
 
 def get_day(day_ct):
     if not (0 < day_ct < 367):
         raise Exception("DayCount is not between 0 and 366")
 
-    rem=(day_ct % MAX_DAYS)
-    if rem==0:
+    rem = (day_ct % MAX_DAYS)
+    if rem == 0:
         return MAX_DAYS
     else:
         return rem
@@ -138,5 +140,6 @@ def print_year():
     for i in range(1, 367):
         t = CotsDate(i, 2020)
         print(t.day, t.week, t.week_day, t.month, t.month_name, t.year)
+
 
 IFCDate = CotsDate
