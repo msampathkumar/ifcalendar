@@ -1,3 +1,0 @@
-# Test-Cases
-sure==1.4.11
-nose
