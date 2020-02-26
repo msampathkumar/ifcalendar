@@ -4,7 +4,7 @@ International Fixed Calander or Cotsworth Calender is a 13 month fixed calender.
 
 # https://github.com/python/cpython/blob/master/Lib/datetime.py
 
-from datetime import datetime
+from datetime import datetime as _datetime
 
 
 MAX_MONTH = 13
@@ -46,8 +46,8 @@ def ifc_now():
 
 def leap_year(year):
     if (year % 4) == 0:
-        if(year % 100 ==0 ):
-            if (year % 400 ==0):
+        if(year % 100 == 0 ):
+            if (year % 400 == 0):
                 return True
             else:
                 return False
@@ -70,7 +70,9 @@ def get_week_ct(day,is_leap):
 
     return day // 7
 
-
+def get_day_of_week(day):
+    return day % 7 - 1
+    
 def get_week_day(day,is_leap):
 
     if is_leap:
@@ -137,7 +139,7 @@ def get_day(day_ct,is_leap):
 
 
 def to_ifc(obj_datetime):
-    if not obj_datetime.__class__ == datetime:
+    if not obj_datetime.__class__ == _datetime:
         raise Exception('Expected `datetime` class object received `{}`'.format(obj_datetime.__class__))
     time_tuple = obj_datetime.timetuple()
     return CotsDate(time_tuple.tm_yday, time_tuple.tm_year)
