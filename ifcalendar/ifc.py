@@ -40,7 +40,9 @@ Sat
 
 
 def ifc_now():
-    return datetime.now().timetuple().tm_yday
+    tt = _datetime.now()
+    return IFCDate(tt.timetuple().tm_yday, tt.year)
+
 
 def leap_year(year):
     if (year % 4) == 0:
@@ -142,28 +144,28 @@ def to_ifc(obj_datetime):
 
 
 class CotsDate:
-    def __init__(self, year_day_count, year):
-        self._year_day_count = year_day_count
+    def __init__(self, dayofyear, year):
+        self._dayofyear = dayofyear
         self._year = year
         self.is_leap = leap_year(year)
 
     def get_month_id(self):
-        return get_month(self._year_day_count,self.is_leap)
+        return get_month(self._dayofyear,self.is_leap)
 
     def get_month_name(self):
         return get_month_name(self.month)
 
     def get_week_id(self):
-        return get_week_ct(self._year_day_count,self.is_leap)
+        return get_week_ct(self._dayofyear,self.is_leap)
 
     def get_week_day(self):
-        return get_week_day(self._year_day_count,self.is_leap)
+        return get_week_day(self._dayofyear,self.is_leap)
 
     def get_year(self):
         return self._year
 
     def get_day(self):
-        return get_day(self._year_day_count,self.is_leap)
+        return get_day(self._dayofyear,self.is_leap)
 
     def __repr__(self):
         return '{} {} {} {}'.format(self.week_day, self.day, self.month_name, self.year)
@@ -178,7 +180,7 @@ class CotsDate:
 
 def print_year():
     for i in range(1, 367):
-        t = CotsDate(i, 2019)
+        t = CotsDate(i, 2020)
         print(i,t.day, t.week, t.week_day, t.month, t.month_name, t.year)
       
 
