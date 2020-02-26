@@ -72,10 +72,12 @@ This will do following tasks for you
 
 **Future Improvements**
 
-[-] Packaging: https://packaging.python.org/
-[ ] Nose TestCases
-[ ] Pandas/Numpy Support
-[ ] Matplotlib, Seaborn Examples
+- [Done] Packaging: https://packaging.python.org/
+- [WIP] Nose TestCases
+- [] Pandas/Numpy Support
+- [] Matplotlib, Seaborn Examples
+
+Use https://github.com/msampathkumar/ifcalendar/projects to know on our progress on bugs & lastest features we are working on.
 
 LICENCE
 =======
