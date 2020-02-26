@@ -23,22 +23,47 @@ In IFC, the total day counts in a month is fixed. There are standard
 four weeks in a month and 13 months a year which makes for 365 days. In
 Leap year, 13 th months will be having 29 day.
 
-Usage
-=====
+How to Usage
+============
 
-::
+To install `ifcalender` using PIP
 
-   >>> import ifcalendar
-   >>> 
-   >>> t = ifcalendar.IFCDate(123, 2020)
-   >>> print(t)
-   Wed 11 JUN 2020
-   >>> t.day
-   11
-   >>> t.month
-   5
-   >>> print(t.day, t.week, t.week_day, t.month, t.month_name, t.year)
-   11 17 Wed 5 JUN 2020
+```python
+pip install -U ifcalendar
+```
+
+How to use in your ML/Data Science Project
+
+```python
+>>> import ifcalendar
+>>> 
+>>> t = ifcalendar.IFCDate(123, 2020) # passing (year_day, year)
+>>> print(t)
+Wed 11 JUN 2020
+>>> t.day
+11
+>>> t.month
+5
+>>> print(t.day, t.week, t.week_day, t.month, t.month_name, t.year)
+11 17 Wed 5 JUN 2020
+```
+
+Developer Setup
+===============
+
+**System Requirement:**
+1. Python3
+2. `git pull`
+
+For a developer setup, run following command from your Mac/Ubuntu system
+
+    make all
+
+This will do following tasks for you
+ 
+1. Setup a virtual environment
+2. Install developer dependencies
+3. Run nose tests 
 
 **Code Development, Helper Sites**
 
@@ -47,7 +72,12 @@ Usage
 
 **Future Improvements**
 
--  Packaging: https://packaging.python.org/
--  Nose TestCases
--  Pandas/Numpy Support
--  Matplotlib, Seaborn Examples
+[-] Packaging: https://packaging.python.org/
+[ ] Nose TestCases
+[ ] Pandas/Numpy Support
+[ ] Matplotlib, Seaborn Examples
+
+LICENCE
+=======
+
+MIT License
