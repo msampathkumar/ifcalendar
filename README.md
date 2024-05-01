@@ -1,4 +1,4 @@
-IFCalendar
+IFC or Internaltional Fixed Calendar for Yearly Reports by Monthly
 ==========
 
 The International Fixed Calendar (also known as the Cotsworth plan, the

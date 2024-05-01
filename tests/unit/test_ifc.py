@@ -13,4 +13,3 @@ class TestGlobalVars(unittest.TestCase):
         _ifc.MAX_DAYS.should.be.a(int)
         _ifc.WEEKDAYS.should.be.a(list)
         self.assertEqual(len(_ifc.WEEKDAYS) * 4, _ifc.MAX_DAYS)
-

@@ -23,11 +23,11 @@ Su Mo Tu We Th Fr Sa  Su Mo Tu We Th Fr Sa  Su Mo Tu We Th Fr Sa
 
 A simple statistical report would look like following
 
-| S.No 	| Month 	| Estimated Profit<br>(in Million) 	| Growth(%) 	|
-|:----:	|:-----:	|:--------------------------------:	|:---------:	|
-| 1 	| Jan 	| 0.8 	| 0 	|
-| 2 	| Feb 	| 0.8 	| 0 	|
-| 3 	| Mar 	| 1.0 	| 25 	|
+|S.No | Month  |  EstimatedProfit<br>(inMillion)  | Difference(%) |
+|:---:|:------:|:--------------------------------:|:-------------:|
+|  1  |  Jan   |               0.8                |       0       |
+|  2  |  Feb   |               0.8                |       0       |
+|  3  |  Mar   |               1.0                |      25       |
 
 Based on above report one would easily assume that there is 25% growth
 in sales. But, the increase in growth due to increase in Profit days not
@@ -35,11 +35,7 @@ necessarily due to improvement in sales.
 
 When we add count of Saturday and Sunday, the report would look like,.
 
-| S.No 	| Month 	| Count of<br>Sat & Sun 	| Estimated Profit<br>(in Million) 	| Growth(%) 	|
-|:----:	|:-----:	|:---------------------:	|:--------------------------------:	|:---------:	|
-| 1 	| Jan 	| 8 	| 0.8 	| 0 	|
-| 2 	| Feb 	| 8 	| 0.8 	| 0 	|
-| 3 	| Mar 	| 10 	| 1.0 	| 25 	|
+
 
 As you can see, these differences will becomes significant for business
 planning and in statical projection of numbers(profits).
@@ -54,6 +50,24 @@ As for IFC, 1 extra day is added December as Dec 29 making it 365 days
 calendar. For leap years, the International Fixed Calendar inserts the
 extra day in leap year as June 29 - between Saturday June 28 and Sunday
 Sol 1.
+
+
+| S.No  | Month  | Count of<br>Sat&Sun | Estimated Profit<br>(inMillion) | Difference(%) |
+|:-----:|:------:|:-------------------:|:-------------------------------:|:-------------:|
+|   1   |  Jan   |          8          |               0.8               |       0       |
+|   2   |  Feb   |          8          |               0.8               |       0       |
+|   3   |  Mar   |         10          |               1.0               |      25       |
+
+But when we use IFC calendar, the same initial report would look like below
+
+
+
+| S.No  | Month  | Count of<br>Sat&Sun | Estimated Profit<br>(inMillion) | Difference(%) |
+|:-----:|:------:|:-------------------:|:-------------------------------:|:-------------:|
+|   1   |  Jan   |          8          |               0.8               |       0       |
+|   2   |  Feb   |          8          |               0.8               |       0       |
+|   3   |  Mar   |          8          |               0.8               |       0       |
+
 
 **Notable Statistical Advantages**
 
