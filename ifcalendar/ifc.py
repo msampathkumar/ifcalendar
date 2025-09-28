@@ -109,18 +109,17 @@ def get_month(day_ct, is_leap):
         raise Exception("DayCount is not between 0 and 366")
 
     if is_leap:
-        if day_ct == 169:
+        if day_ct == 169:  # Leap Day
             return 6
         if day_ct > 169:
-            day_ct = day_ct
+            day_ct -= 1
 
-    if day_ct == 365 or day_ct == 366:
+    if day_ct >= 365:  # Year Day
         return 13
 
     mon, day = divmod(day_ct, MAX_DAYS)
-    if day == 0 & mon != 13:
+    if day == 0:
         return mon
-
     return mon + 1
 
 
@@ -129,25 +128,22 @@ def get_day(day_ct, is_leap):
         raise Exception("DayCount is not between 0 and 366")
 
     if is_leap:
-        if day_ct == 169:
+        if day_ct == 169:  # Leap Day
             return 29
-        if day_ct == 366:
+        if day_ct == 366:  # Year Day
             return 29
-        if day_ct == 365:
-            return 28
         if day_ct > 169:
-            day_ct = day_ct - 1
+            day_ct -= 1
     else:
-        if day_ct == 366:
-            return "Not a leap year to exist 366 days"
-        if day_ct == 365:
+        if day_ct == 365:  # Year Day
             return 29
+        if day_ct == 366:
+            raise Exception("Not a leap year to exist 366 days")
 
     rem = day_ct % MAX_DAYS
     if rem == 0:
         return MAX_DAYS
-    else:
-        return rem
+    return rem
 
 
 def to_ifc(obj_datetime):

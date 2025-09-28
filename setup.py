@@ -16,5 +16,5 @@ setup(
     long_description_content_type="text/markdown",
     packages=["ifcalendar"],
     url="https://github.com/msampathkumar/ifcalendar",
-    install_requires=[],
+    install_requires=["sure==1.4.11"],
 )

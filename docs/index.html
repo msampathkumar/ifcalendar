@@ -40,6 +40,9 @@ Usage
    >>> print(t.day, t.week, t.week_day, t.month, t.month_name, t.year)
    11 17 Wed 5 JUN 2020
 
+<h2>Open Issues</h2>
+<ul id="issues"></ul>
+
 **Code Development, Helper Sites**
 
 -  https://github.com/msampathkumar/ifcalendar
@@ -51,3 +54,21 @@ Usage
 -  Nose TestCases
 -  Pandas/Numpy Support
 -  Matplotlib, Seaborn Examples
+
+<script>
+  fetch('https://api.github.com/repos/msampathkumar/ifcalendar/issues')
+    .then(response => response.json())
+    .then(data => {
+      const issuesList = document.getElementById('issues');
+      data.forEach(issue => {
+        if (issue.state === 'open') {
+          const listItem = document.createElement('li');
+          const link = document.createElement('a');
+          link.href = issue.html_url;
+          link.textContent = issue.title;
+          listItem.appendChild(link);
+          issuesList.appendChild(listItem);
+        }
+      });
+    });
+</script>
